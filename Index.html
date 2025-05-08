@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>School Locator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      margin-top: 15px;
+      display: block;
+      font-weight: 600;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fafafa;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 25px;
+      font-size: 18px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Find School Location</h2>
+
+    <label for="district">District</label>
+    <select id="district" onchange="loadBlocks()">
+      <option>Select District</option>
+    </select>
+
+    <label for="block">Block</label>
+    <select id="block" onchange="loadSchools()">
+      <option>Select Block</option>
+    </select>
+
+    <label for="school">School</label>
+    <select id="school">
+      <option>Select School</option>
+    </select>
+
+    <button onclick="findLocation()">Find Location</button>
+  </div>
+
+  <script>
+    let data = {};
+
+    // Replace this URL with your raw JSON link from GitHub
+    const jsonURL = 'schools.json';
+
+    fetch(jsonURL)
+      .then(res => res.json())
+      .then(json => {
+        data = json;
+        loadDistricts();
+      });
+
+    function loadDistricts() {
+      const districtSelect = document.getElementById('district');
+      districtSelect.innerHTML = '<option>Select District</option>';
+      Object.keys(data).forEach(district => {
+        const opt = new Option(district, district);
+        districtSelect.add(opt);
+      });
+    }
+
+    function loadBlocks() {
+      const district = document.getElementById('district').value;
+      const blockSelect = document.getElementById('block');
+      blockSelect.innerHTML = '<option>Select Block</option>';
+      document.getElementById('school').innerHTML = '<option>Select School</option>';
+
+      if (data[district]) {
+        Object.keys(data[district]).forEach(block => {
+          const opt = new Option(block, block);
+          blockSelect.add(opt);
+        });
+      }
+    }
+
+    function loadSchools() {
+      const district = document.getElementById('district').value;
+      const block = document.getElementById('block').value;
+      const schoolSelect = document.getElementById('school');
+      schoolSelect.innerHTML = '<option>Select School</option>';
+
+      if (data[district]?.[block]) {
+        Object.keys(data[district][block]).forEach(school => {
+          const opt = new Option(school, school);
+          schoolSelect.add(opt);
+        });
+      }
+    }
+
+    function findLocation() {
+      const district = document.getElementById('district').value;
+      const block = document.getElementById('block').value;
+      const school = document.getElementById('school').value;
+      const coordinates = data[district]?.[block]?.[school];
+      if (coordinates) {
+        const url = `https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`;
+        window.open(url, '_blank');
+      } else {
+        alert('Please select a valid school.');
+      }
+    }
+  </script>
+</body>
+</html>

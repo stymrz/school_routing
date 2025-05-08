@@ -1,0 +1,101 @@
+{
+  "Purnea": {
+    "Purnia East": {
+      "Zila School Purnea": {
+        "lat": 25.7711,
+        "lng": 87.4332,
+        "district": "Purnia"
+      },
+      "Govt Girls High School Purnea": {
+        "lat": 25.7711,
+        "lng": 87.4822,
+        "district": "Purnia"
+      },
+      "B B M High School Purnea": {
+        "lat": 25.7711,
+        "lng": 87.5312,
+        "district": "Purnia"
+      },
+      "JLNS High School Gulab Bagh": {
+        "lat": 25.7711,
+        "lng": 87.5802,
+        "district": "Purnia"
+      },
+      "Parwati Mandal High School Harda": {
+        "lat": 25.7711,
+        "lng": 87.6292,
+        "district": "Purnia"
+      },
+      "Anchit Sah High School Belouri": {
+        "lat": 25.7711,
+        "lng": 87.6782,
+        "district": "Purnia"
+      },
+      "High School Chandi Rajiganj": {
+        "lat": 25.7711,
+        "lng": 87.7272,
+        "district": "Purnia"
+      },
+      "Govt High School Shri Nagar": {
+        "lat": 25.7711,
+        "lng": 87.7762,
+        "district": "Purnia"
+      },
+      "R P C High School Purnea City": {
+        "lat": 25.7711,
+        "lng": 87.8742,
+        "district": "Purnia"
+      }
+    },
+    "Krityanand Nagar": {
+      "Siya Mohan High School Sahara": {
+        "lat": 25.8,
+        "lng": 87.8252,
+        "district": "Purnia"
+      }
+    },
+    "Kasba": {
+      "High School Kasba": {
+        "lat": 25.95,
+        "lng": 87.9232,
+        "district": "Purnia"
+      },
+      "K D Girls High School Kasba": {
+        "lat": 25.95,
+        "lng": 87.9722,
+        "district": "Purnia"
+      }
+    },
+    "Dhamdaha": {
+      "Project Girls High School Rani Patra": {
+        "lat": 25.85,
+        "lng": 88.0212,
+        "district": "Purnia"
+      },
+      "K G P High School Bhoga Bhatgama": {
+        "lat": 25.85,
+        "lng": 88.0702,
+        "district": "Purnia"
+      }
+    },
+    "Jalalgarh": {
+      "N D Rungta High School Jalalgarh": {
+        "lat": 25.9,
+        "lng": 88.1192,
+        "district": "Purnia"
+      }
+    },
+    "Banmankhi": {
+      "Kala Nand High School Garh Banaili": {
+        "lat": 25.8873,
+        "lng": 88.1682,
+        "district": "Purnia"
+      },
+      "B N High School Jagnichampa Nagar": {
+        "lat": 25.8873,
+        "lng": 88.2172,
+        "district": "Purnia"
+      }
+    }
+  }
+}
